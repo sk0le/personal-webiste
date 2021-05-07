@@ -21,6 +21,10 @@ export default function BlogPostPage({ post }: PageProps) {
         node.style.fontFamily = "Poppins";
         hljs.highlightBlock(node);
       });
+      const links = con.querySelectorAll("a");
+      links.forEach((node) => {
+        node.setAttribute("target", "_blank");
+      });
     }
   }, []);
   return (
@@ -42,7 +46,7 @@ export default function BlogPostPage({ post }: PageProps) {
         <meta property="twitter:description" content={post.data.desc} />
         <meta property="twitter:image" content={post.data.img} />
       </Head>
-      <main className="flex-1 w-full min-h-[90vh] h-full flex flex-col justify-start items-center py-8 px-4 xl:px-0">
+      <main className="flex-1 w-full min-h-[90vh] h-full flex flex-col justify-start items-center py-2 sm:py-4 lg:py-8 px-4 xl:px-0">
         <div className="mt-4 flex flex-col items-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl max-w-screen-xl w-full text-center text-gray-900 dark:text-gray-100 font-bold">
             {post.data.title}
