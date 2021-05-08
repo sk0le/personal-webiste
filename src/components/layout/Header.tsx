@@ -9,20 +9,27 @@ export default function Header() {
   const router = useRouter();
 
   useEffect(() => {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") setThemeToDark();
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      setThemeToDark();
+    } else {
+      setThemeToLight();
+    }
   }, []);
 
   const setThemeToDark = () => {
     document.getElementsByTagName("html")[0].classList.add("dark");
     setDark(true);
-    localStorage.setItem("theme", "dark");
+    localStorage.theme = "dark";
   };
 
   const setThemeToLight = () => {
     document.getElementsByTagName("html")[0].classList.remove("dark");
     setDark(false);
-    localStorage.removeItem("theme");
+    localStorage.theme = "light";
   };
   return (
     <div className="sticky top-0 z-10 w-full flex justify-center items-center dark:bg-gray-900 bg-white transition duration-500">

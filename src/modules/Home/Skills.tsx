@@ -6,9 +6,9 @@ export default function Skills() {
         <div className="w-12 h-1 bg-indigo-600"></div>
       </div>
       <div className="flex h-auto flex-col md:flex-row items-center">
-        <div className="max-w-[256px] h-auto flex flex-col justify-center items-center px-4 py-8 mt-4 bg-indigo-100 dark:bg-gray-800  rounded-md">
+        <div className="max-w-[256px] h-auto flex flex-col mr-0 md:mr-4 justify-center items-center px-4 py-8 mt-4 bg-indigo-100 dark:bg-gray-800  rounded-md">
           <h1 className="text-2xl dark:text-gray-100  text-gray-900 mb-4">
-            Front End
+            Back End
           </h1>
           <p className="text-md dark:text-gray-300 text-gray-700">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut orci
