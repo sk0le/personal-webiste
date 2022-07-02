@@ -8,7 +8,6 @@ import React, {
 import Button from "../../../components/elements/Button";
 import ReactMarkdown from "react-markdown";
 import { Repo } from "../../../lib/types/Repos";
-import { profileEnd } from "node:console";
 
 interface PageProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
