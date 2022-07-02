@@ -1,6 +1,9 @@
 export default function Footer() {
   return (
-    <div className="min-h-[60vh] h-full w-full flex justify-center items-center flex-col bg-indigo-700">
+    <div
+      id="contact"
+      className="min-h-[60vh] h-full w-full flex justify-center items-center flex-col bg-indigo-700"
+    >
       <div className="flex-1 w-full flex flex-col md:flex-row justify-center items-center px-4 py-8">
         <form className="max-w-lg w-full flex flex-col items-start justify-center mb-8 md:mr-16">
           <h1 className="text-4xl text-gray-100 font-extrabold mb-4">
@@ -25,7 +28,7 @@ export default function Footer() {
         <img src="/contact.svg" alt="contact" className="max-w-md w-full" />
       </div>
       <div className="min-h-[7vh] h-full w-full p-8 flex justify-center items-center bg-indigo-800">
-        <p className="text-gray-100 text-xl font-medium">2021 Amel Islamovic</p>
+        <p className="text-gray-100 text-xl font-medium">2022 Amel Islamovic</p>
       </div>
     </div>
   );

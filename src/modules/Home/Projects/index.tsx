@@ -8,7 +8,10 @@ interface PageProps {
 
 export default function Projects({ projects }: PageProps) {
   return (
-    <div className="min-h-[60vh] h-full w-full flex flex-col justify-center items-center py-6 pb-12 px-2">
+    <div
+      id="projects"
+      className="min-h-[60vh] h-full w-full flex flex-col justify-center items-center py-6 pb-12 px-2"
+    >
       <div className="flex flex-col justify-center items-center mb-8">
         <h1 className="text-5xl text-indigo-600 font-bold">Projects</h1>
         <div className="w-12 h-1 bg-indigo-600"></div>

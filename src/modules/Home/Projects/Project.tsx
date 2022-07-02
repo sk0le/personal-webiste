@@ -11,7 +11,7 @@ export default function Project({ project }: PageProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="max-w-sm w-full h-auto px-8 py-8 shadow-xl dark:bg-gray-800 rounded-md">
+      <div className="max-w-sm w-full h-auto px-8 py-8 shadow-xl bg-blue-400 dark:bg-gray-800 rounded-md">
         <h1 className="text-2xl font-bold dark:text-gray-100 text-gray-900">
           {project.name}
         </h1>
@@ -20,7 +20,11 @@ export default function Project({ project }: PageProps) {
         </p>
         <div className="flex justify-left  items-center">
           <Button onClick={() => setIsOpen(true)}>View more</Button>
-          <a className="ml-4 cursor-pointer dark:text-gray-300 text-gray-700">
+          <a
+            href={project.url}
+            target="_blank"
+            className="ml-4 cursor-pointer dark:text-gray-300 text-gray-700"
+          >
             Github
           </a>
         </div>

@@ -32,10 +32,18 @@ export default function Header() {
     localStorage.theme = "light";
   };
   return (
-    <div className="sticky top-0 z-10 w-full flex justify-center items-center dark:bg-gray-900 bg-white transition duration-500">
+    <div
+      id="header"
+      className="sticky top-0 z-10 w-full flex justify-center items-center dark:bg-gray-900 bg-white transition duration-500"
+    >
       <header className="max-w-screen-xl flex flex-col lg:flex-row justify-between items-center w-full h-20 px-6 sm:px-12 xl:px-0">
         <div className="flex h-full justify-between items-center w-full">
-          <h1 className="text-4xl font-bold cursor-pointer text-indigo-600">
+          <h1
+            onClick={() => {
+              router.push("/");
+            }}
+            className="text-4xl font-bold cursor-pointer text-indigo-600"
+          >
             Amel Islamovic
           </h1>
           {!open ? (
@@ -80,16 +88,37 @@ export default function Header() {
              mg:max-w-lg w-full top-20 px-6 sm:px-12 lg:px-0 pb-4 pt-2 lg:pt-0
               lg:pb-0 lg:bg-transparent z-50 lg:z-0 fixed lg:position-unset`}
         >
-          <a className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0 lg:mb-0 font-medium cursor-pointer transition  hover:text-indigo-700">
+          <a
+            onClick={() => {
+              router.push("/");
+            }}
+            className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0 lg:mb-0 font-medium cursor-pointer transition  hover:text-indigo-700"
+          >
             Home
           </a>
-          <a className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0  lg:mb-0 font-medium  cursor-pointer transition  hover:text-indigo-700">
+          <a
+            onClick={() => {
+              router.push("/#skills");
+            }}
+            href="/#skils"
+            className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0  lg:mb-0 font-medium  cursor-pointer transition  hover:text-indigo-700"
+          >
             Skills
           </a>
-          <a className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0  lg:mb-0 font-medium  cursor-pointer transition  hover:text-indigo-700">
+          <a
+            onClick={() => {
+              router.push("/#about");
+            }}
+            className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0  lg:mb-0 font-medium  cursor-pointer transition  hover:text-indigo-700"
+          >
             About
           </a>
-          <a className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0  lg:mb-0 font-medium  cursor-pointer transition  hover:text-indigo-700">
+          <a
+            onClick={() => {
+              router.push("/#projects");
+            }}
+            className="dark:text-gray-100 text-gray-900 mb-2 pl-1 lg:pl-0  lg:mb-0 font-medium  cursor-pointer transition  hover:text-indigo-700"
+          >
             Projects
           </a>
           <a
@@ -121,7 +150,13 @@ export default function Header() {
               <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
             </svg>
           )}
-          <Button>Contact</Button>
+          <Button
+            onClick={() => {
+              router.push("/#contact");
+            }}
+          >
+            Contact
+          </Button>
         </div>
       </header>
     </div>

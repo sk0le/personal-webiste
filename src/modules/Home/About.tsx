@@ -1,6 +1,9 @@
 export default function About() {
   return (
-    <div className="min-h-[70vh] h-full w-full flex flex-col justify-center items-center">
+    <div
+      id="about"
+      className="min-h-[70vh] h-full w-full flex flex-col justify-center items-center"
+    >
       <div className="flex flex-col justify-center items-center mb-8">
         <h1 className="text-5xl text-indigo-600 font-bold">About</h1>
         <div className="w-12 h-1 bg-indigo-600"></div>
