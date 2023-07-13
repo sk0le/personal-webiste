@@ -21,7 +21,7 @@ export default function Header() {
     <motion.header
       animate={{ translateY: ["-100%", "10%", "0%"] }}
       transition={{ duration: 1 }}
-      className={`z-[99999] fixed ${haveShadow ? "shadow" : ""} top-0 ${
+      className={`z-[99999]  ${haveShadow ? "shadow" : ""} top-0 ${
         haveShadow ? "backdrop-blur-2xl" : "bg-gray-100"
       } w-full px-4 py-6 flex justify-center items-center`}
       style={{ backgroundColor: haveShadow ? "rgba(243, 244, 246, .6)" : "" }}
@@ -37,7 +37,7 @@ export default function Header() {
         >
           ai
         </motion.h1>
-        <nav className="flex space-x-10 font-light text-sm">
+        <nav className="hidden sm:flex space-x-10 font-light text-sm">
           <motion.a
             href={"/#home"}
             whileTap={{ scale: 0.8 }}
@@ -53,18 +53,18 @@ export default function Header() {
             Skills
           </motion.a>
           <motion.a
-            href={"/"}
-            whileTap={{ scale: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-          >
-            About Me
-          </motion.a>
-          <motion.a
-            href={"/"}
+            href={"/#projects"}
             whileTap={{ scale: 0.8 }}
             whileHover={{ scale: 1.05 }}
           >
             Projects
+          </motion.a>
+          <motion.a
+            href={"/#contact"}
+            whileTap={{ scale: 0.8 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            Contact
           </motion.a>
         </nav>
       </div>

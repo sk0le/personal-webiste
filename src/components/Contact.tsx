@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 export default function Contact() {
   return (
-    <div className="bg-black text-gray-100 w-full flex justify-center items-center px-6 py-12">
-      <div className="max-w-6xl w-full h-full flex items-center justify-between">
+    <div
+      id="contact"
+      className="NO-X bg-black text-gray-100 w-full flex  justify-center items-center px-6 py-12"
+    >
+      <div className="max-w-6xl w-full h-full flex flex-col space-y-6 md:space-y-0 md:flex-row items-center justify-between">
         <motion.div
           initial={{ translateX: "-100px" }}
           whileInView={{ translateX: "0px", transition: { duration: 1 } }}
@@ -15,7 +18,7 @@ export default function Contact() {
         <motion.form
           initial={{ translateX: "100px" }}
           whileInView={{ translateX: "0px", transition: { duration: 1 } }}
-          className="flex flex-col flex-1 justify-center items-center space-y-2"
+          className="flex flex-col w-full justify-center items-center space-y-2"
         >
           <input
             className="bg-transparent w-full max-w-md border-gray-100 border outline-none py-2 px-6 rounded-md focus:border-red-600"

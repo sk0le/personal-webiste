@@ -4,55 +4,17 @@ import {
   faTerminal,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useSpring,
-} from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 export default function Skills() {
-  const ref = useRef(null);
-
-  const designRef = useRef<null | HTMLDivElement>(null);
-  const devRef = useRef<null | HTMLDivElement>(null);
-  const shellRef = useRef<null | HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end end"],
-  });
-
-  const designSpring = useSpring(0);
-  const devSpring = useSpring(0);
-  const shellSpring = useSpring(0);
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    // @ts-ignore
-    if (designRef.current) {
-      // designRef.current.style.opacity = `${latest - 0.1}`;
-      designSpring.set((latest - 1) * 100);
-    }
-    if (devRef.current) {
-      // devRef.current.style.opacity = `${latest - 0.1}`;
-      devSpring.set(Math.abs((latest - 1) * 100));
-    }
-    if (shellRef.current) {
-      shellSpring.set(Math.abs((latest - 1) * 100));
-      // shellRef.current.style.opacity = `${latest - 0.1}`;
-    }
-  });
-
   return (
     <div
-      ref={ref}
       id="skills"
-      className="w-full scroll-m-96 h-full px-6 overflow-hidden py-16 flex bg-white justify-center items-center lg:space-x-6"
+      className="NO-X w-full scroll-m-96 h-full px-6 overflow-hidden py-16 flex flex-col lg:flex-row bg-white justify-center items-center space-y-6 lg:space-y-0 lg:space-x-6"
     >
       <motion.div
-        ref={designRef}
         whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
-        style={{ translateX: designSpring }}
+        whileInView={{ translateX: "0px", transition: { duration: 1 } }}
+        initial={{ translateX: "-50px" }}
         className="bg-black max-w-xs  shadow-2xl w-full h-full rounded-md text-white flex flex-col items-center justify-start py-6 px-6"
       >
         <motion.div
@@ -75,8 +37,8 @@ export default function Skills() {
         </p>
       </motion.div>
       <motion.div
-        ref={devRef}
-        style={{ translateY: devSpring }}
+        whileInView={{ translateY: "0px", transition: { duration: 0.5 } }}
+        initial={{ translateY: "50px" }}
         whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
         className="bg-black max-w-xs shadow-2xl  w-full h-full rounded-md text-white flex flex-col items-center justify-start py-6 px-6"
       >
@@ -100,8 +62,8 @@ export default function Skills() {
         </p>
       </motion.div>
       <motion.div
-        style={{ translateX: shellSpring }}
-        ref={shellRef}
+        whileInView={{ translateX: "0px", transition: { duration: 0.5 } }}
+        initial={{ translateX: "50px" }}
         whileHover={{ scale: 1.05, transition: { duration: 0.5 } }}
         className="bg-black max-w-xs shadow-2xl w-full  h-full rounded-md text-white flex flex-col items-center justify-start py-6 px-6"
       >
