@@ -26,27 +26,41 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Amel Islamovic</title>
-        <meta name="description" content="Personal Website of Amel Islamovic" />
+        <title>Amel Islamović | Personal website</title>
+
+        <meta name="title" content="Amel Islamović | Personal Website" />
+        <meta
+          name="description"
+          content="Personal Website of Amel Islamović."
+        />
+        <meta
+          name="keywords"
+          content="amel islamovic, software development, full stack developer"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="author" content="Amel Islamović" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <main className="min-h-screen w-full bg-gray-100 flex flex-col justify-start items-center pb-6 md:pb-0">
         <Header />
 
-        <div className="z-10 flex-col-reverse md:flex-row md:max-w-5xl flex-1 h-full w-full px-4 xl:px-0 flex justify-center md:justify-between items-center">
+        <div className="NO-X z-10 flex-col-reverse md:flex-row md:max-w-5xl flex-1 h-full w-full px-4 xl:px-0 flex justify-center md:justify-between items-center">
           <motion.div
             initial={{ opacity: 0, translateX: "-50%" }}
             animate={{ opacity: 1, translateX: "0%" }}
             transition={{ duration: 1 }}
-            className="flex flex-col items-start justify-start"
+            className="flex flex-col items-center justify-center md:items-start md:justify-start"
           >
-            <h1 className="text-7xl  font-black font-inter">
+            <h1 className="text-7xl  font-black font-inter  text-center md:text-left">
               full-stack
               <br />
               developer
             </h1>
-            <p className="mt-4 max-w-sm">
+            <p className="mt-4 max-w-sm text-center md:text-left">
               Hi, my name is Amel Islamovic, <br />
               I’m passionate full-stack developer from Bosnia and Herzegovina.
             </p>
