@@ -81,6 +81,7 @@ export default function Projects() {
           className="bg-white w-full h-full md:col-span-2  rounded-md shadow-sm hover:shadow-xl transition-all"
         ></motion.div>
       </div>
+
       <AnimatePresence>
         {selectedId && (
           <motion.div
