@@ -1,22 +1,18 @@
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-export default function Projects() {
-  const [selectedId, setSelectedId] = useState<null | string>(null);
-
-  useEffect(() => {
-    if (selectedId) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
-    }
-  }, [selectedId]);
-
+interface CProps {
+  projects: Project[];
+}
+export default function Projects({ projects }: CProps) {
+  const router = useRouter();
   return (
     <div
       id="projects"
-      className="NO-X min-h-screen w-full h-full bg-gray-100 flex justify-center flex-col px-6 py-16 items-center"
+      className="NO-X w-full bg-gray-100 flex justify-center flex-col px-6 py-16 items-center"
     >
       <div className="w-full max-w-4xl flex justify-between items-center">
         <motion.h1
@@ -43,17 +39,42 @@ export default function Projects() {
           </svg>
         </motion.a>
       </div>
-      <div className="mt-10 grid grid-cols-1 grid-rows-4 md:grid-cols-3 md:grid-rows-3 gap-10 w-full max-w-4xl">
-        <motion.div
-          layoutId={"0"}
-          onClick={() => {
-            setSelectedId("0");
-          }}
-          whileInView={{ translateX: "0px", transition: { duration: 0.5 } }}
-          initial={{ translateX: "-50px" }}
-          className="bg-white w-full h-full md:col-span-2 md:row-span-2 rounded-md shadow-sm hover:shadow-xl transition-all"
-        ></motion.div>
-        <motion.div
+      <div className="mt-10 grid grid-cols-1 grid-rows-4 lg:grid-cols-4 gap-10 w-full max-w-4xl">
+        {projects.map((project, index) => {
+          return (
+            <motion.div
+              key={index}
+              layoutId={"0"}
+              onClick={() => {
+                router.push(`/projects/${project.slug}`);
+              }}
+              whileInView={{ translateX: "0px", transition: { duration: 0.5 } }}
+              initial={{ translateX: "-50px" }}
+              className="bg-white w-full h-full lg:col-span-2 flex-col lg:row-span-2 flex justify-center items-start rounded-md shadow-sm hover:shadow-xl transition-all"
+            >
+              <Image
+                className="w-full p-2 rounded-md"
+                unoptimized
+                width={0}
+                height={0}
+                src={project.frontmatter.coverImage}
+                alt=""
+              />
+
+              <div className="p-6">
+                <h1 className="text-xl font-medium">
+                  {project.frontmatter.title}
+                </h1>
+
+                <p className="mt-2 text-sm">{project.frontmatter.role}</p>
+                <p className="mb-2 text-sm">{project.frontmatter.time}</p>
+
+                <p>{project.frontmatter.shortDescription}</p>
+              </div>
+            </motion.div>
+          );
+        })}
+        {/* <motion.div
           layoutId={"1"}
           onClick={() => {
             setSelectedId("1");
@@ -79,34 +100,8 @@ export default function Projects() {
           whileInView={{ translateX: "0px", transition: { duration: 0.5 } }}
           initial={{ translateX: "-80px" }}
           className="bg-white w-full h-full md:col-span-2  rounded-md shadow-sm hover:shadow-xl transition-all"
-        ></motion.div>
+        ></motion.div> */}
       </div>
-
-      <AnimatePresence>
-        {selectedId && (
-          <motion.div
-            className="min-h-screen h-full w-full fixed top-0 left-0 bg-white overflow-hidden flex justify-center items-start py-12 px-6"
-            layoutId={selectedId}
-            style={{
-              zIndex: "9999999999999999",
-            }}
-          >
-            <div className="max-w-6xl w-full h-full flex">
-              <div className="w-full flex justify-between ">
-                <h1>Hello</h1>
-                <p
-                  className="cursor-pointer"
-                  onClick={() => {
-                    setSelectedId(null);
-                  }}
-                >
-                  &#10005;
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }

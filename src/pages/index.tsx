@@ -7,9 +7,13 @@ import Skills from "@/components/Skills";
 import Header from "@/components/layout/Header";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import { useRouter } from "next/router";
+import fs from "fs";
+import matter from "gray-matter";
 
-export default function Home() {
+interface CProps {
+  projects: Project[];
+}
+export default function Home({ projects }: CProps) {
   const controls = useAnimationControls();
 
   useEffect(() => {
@@ -100,8 +104,37 @@ export default function Home() {
       </main>
 
       <Skills />
-      <Projects />
+      <Projects projects={projects} />
       <Contact />
     </>
   );
+}
+
+export async function getStaticProps() {
+  try {
+    const files = fs.readdirSync("public/projects");
+
+    const projects = files.map((fileName) => {
+      const slug = fileName.replace(".md", "");
+      const readFile = fs.readFileSync(`public/projects/${fileName}`, "utf-8");
+      const { data: frontmatter } = matter(readFile);
+
+      return {
+        slug,
+        frontmatter,
+      };
+    });
+
+    console.log(projects);
+
+    return {
+      props: { projects },
+    };
+  } catch (error) {
+    console.error(error);
+
+    return {
+      props: {},
+    };
+  }
 }
