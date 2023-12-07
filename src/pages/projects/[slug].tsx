@@ -65,7 +65,7 @@ interface CProps {
 
 function Project({ frontmatter, content }: CProps) {
   useEffect(() => {
-    console.log(frontmatter);
+    // console.log(frontmatter);
   }, []);
   return (
     <>

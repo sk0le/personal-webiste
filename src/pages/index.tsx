@@ -125,7 +125,7 @@ export async function getStaticProps() {
       };
     });
 
-    console.log(projects);
+    // console.log(projects);
 
     return {
       props: { projects },
