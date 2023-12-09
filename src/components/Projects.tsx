@@ -12,7 +12,7 @@ export default function Projects({ projects }: CProps) {
   return (
     <div
       id="projects"
-      className="NO-X w-full bg-gray-100 flex justify-center flex-col px-6 py-16 items-center"
+      className="snap-start NO-X w-full bg-gray-100 flex justify-center flex-col px-6 py-16 items-center"
     >
       <div className="w-full max-w-4xl flex justify-between items-center">
         <motion.h1

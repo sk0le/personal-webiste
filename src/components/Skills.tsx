@@ -9,7 +9,7 @@ export default function Skills() {
   return (
     <div
       id="skills"
-      className="NO-X w-full scroll-m-96 h-full px-6  py-16 flex  bg-white justify-center items-center space-y-6 lg:space-y-0 lg:space-x-6"
+      className="snap-center NO-X w-full scroll-m-96 h-full px-6  py-16 flex  bg-white justify-center items-center space-y-6 lg:space-y-0 lg:space-x-6"
     >
       <div className="grid flex-cols-1 lg:grid-cols-3 gap-3">
         <motion.div

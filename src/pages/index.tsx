@@ -49,7 +49,8 @@ export default function Home({ projects }: CProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      <main className="min-h-screen w-full bg-gray-100 flex flex-col justify-start items-center pb-6 md:pb-0">
+      {/* <div className="snap-y snap-mandatory"> */}
+      <main className="snap-center min-h-screen w-full bg-gray-100 flex flex-col justify-start items-center pb-6 md:pb-0">
         <Header />
 
         <div className="NO-X z-10 flex-col-reverse md:flex-row md:max-w-5xl flex-1 h-full w-full px-4 xl:px-0 flex justify-center md:justify-between items-center">
@@ -89,7 +90,9 @@ export default function Home({ projects }: CProps) {
           <motion.img
             src={"/images/sculpture.png"}
             alt=""
-            initial={{ clipPath: "polygon(0 44%, 100% 44%, 100% 44%, 0 44%)" }}
+            initial={{
+              clipPath: "polygon(0 44%, 100% 44%, 100% 44%, 0 44%)",
+            }}
             animate={controls}
             className="w-full my-4 md:my-0 max-w-xs md:max-w-sm"
           />
@@ -106,6 +109,7 @@ export default function Home({ projects }: CProps) {
       <Skills />
       <Projects projects={projects} />
       <Contact />
+      {/* </div> */}
     </>
   );
 }

@@ -3,7 +3,7 @@ export default function Contact() {
   return (
     <div
       id="contact"
-      className="NO-X bg-black text-gray-100 w-full flex  justify-center items-center px-6 py-12"
+      className="snap-center NO-X bg-black text-gray-100 w-full flex  justify-center items-center px-6 py-12"
     >
       <div className="max-w-6xl w-full h-full flex flex-col space-y-6 md:space-y-0 md:flex-row items-center justify-between">
         <motion.div
