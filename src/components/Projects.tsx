@@ -39,15 +39,15 @@ export default function Projects({ projects }: CProps) {
           </svg>
         </motion.a>
       </div>
-      <div className="mt-10 grid grid-cols-1 grid-rows-4 lg:grid-cols-4 gap-10 w-full max-w-4xl">
+      <div className="mt-10 grid grid-cols-1 grid-rows-3 lg:grid-rows-4 lg:grid-cols-4 gap-10 w-full max-w-4xl">
         {projects.map((project, index) => {
           return (
             <motion.div
               key={index}
               layoutId={"0"}
-              onClick={() => {
-                router.push(`/projects/${project.slug}`);
-              }}
+              // onClick={() => {
+              //   router.push(`/projects/${project.slug}`);
+              // }}
               whileInView={{ translateX: "0px", transition: { duration: 0.5 } }}
               initial={{ translateX: "-50px" }}
               className="bg-white w-full h-full lg:col-span-2 flex-col lg:row-span-2 flex justify-center items-start rounded-md shadow-sm hover:shadow-xl transition-all"
